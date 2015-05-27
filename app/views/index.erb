@@ -10,6 +10,25 @@
   <input id='up' type='button' value='&#8593;'>
   <input id='down' type='button' value='&#8595;'>
 
+  <input id='reset' type='button' value='reset'>
+
+  <input id='powerOff' type='button' value='powerOff'>
+  <input id='powerOn' type='button' value='powerOn'>
+
+  <br>
+  <br>
+  What is the weather in another City?
+  <form id='city-search' name="City search">
+    <input type='text' name='city'/>
+    <input type='submit' value='search'>
+  </form>
+  <br>
+  <br>
+  Your searched city has: <div id='city-weather'> </div>
+  <br>
+  And the temperature is: <div id='city-temp'> </div>
+
+  <script src='js/src/weather.js'></script>
   <script src='js/src/Thermostat.js'></script>
   <script src='js/src/button.js'></script>
 </body>

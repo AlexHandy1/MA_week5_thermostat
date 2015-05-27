@@ -31,4 +31,17 @@ $(document).ready( function() {
         $('html').removeClass("yellow");
         $('html').addClass("red");    }
   });
+
+  $('#reset').on('click', function(){
+    thermostat.defaultTemp();
+    $('#temperature').html(thermostat.degrees);
+  });
+
+ $('#powerOn').on('click', function(){
+    thermostat.turnPowerOn();
+  });
+
+  $('#powerOff').on('click', function(){
+    thermostat.turnPowerOff();
+  });
 });
