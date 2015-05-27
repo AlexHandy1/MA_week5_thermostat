@@ -20,10 +20,36 @@ describe('Thermostat', function(){
   });
 
   it('cannot go below 10 degrees', function(){
-    for (var i = 0, i = 10, i ++) {
+    for (var i = 0; i < 10; i++) {
       thermostat.lowerTemp();
     };
     expect(function(){
-      thermostat.lowerTemp();} ).toThrow(new Error("Minimum temperature reached"));
+      thermostat.lowerTemp();}).toThrow("Minimum temperature reached");
+  });
+
+  it('has a default power saving status of true', function(){
+    expect(thermostat.powerSaving).toBe(true);
+  });
+
+  it('cannot go above 25 degress when power saving status is true', function(){
+    for (var i = 0; i < 5; i++) {
+      thermostat.raiseTemp();
+    }
+    expect(function(){
+      thermostat.raiseTemp();}).toThrow("Maximum temperature reached");
+  });
+
+  it('can have power saving mode turned off', function(){
+    thermostat.turnPowerOff();
+    expect(thermostat.powerSaving).toBe(false);
+  });
+
+  it('cannot go above 32 degrees when power saving status is false', function(){
+    thermostat.turnPowerOff();
+    for (var i = 0; i < 12; i++) {
+      thermostat.raiseTemp();
+    }
+    expect(function(){
+      thermostat.raiseTemp();}).toThrow("Maximum temperature reached");
   });
 });
