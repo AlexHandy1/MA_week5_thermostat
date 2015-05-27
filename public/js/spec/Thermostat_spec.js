@@ -52,4 +52,9 @@ describe('Thermostat', function(){
     expect(function(){
       thermostat.raiseTemp();}).toThrow("Maximum temperature reached");
   });
+
+  it ('temperature can be set to default', function(){
+    thermostat.defaultTemp();
+    expect(thermostat.degrees).toBe(20);
+  });
 });

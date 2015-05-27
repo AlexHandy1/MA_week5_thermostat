@@ -18,3 +18,7 @@ Thermostat.prototype.turnPowerOff = function() {
   this.powerSaving = false;
 };
 
+
+Thermostat.prototype.defaultTemp = function() {
+  this.degrees = 20;
+};
