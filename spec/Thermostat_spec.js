@@ -18,4 +18,12 @@ describe('Thermostat', function(){
     thermostat.lowerTemp();
     expect(thermostat.degrees).toEqual(19);
   });
+
+  it('cannot go below 10 degrees', function(){
+    for (var i = 0, i = 10, i ++) {
+      thermostat.lowerTemp();
+    };
+    expect(function(){
+      thermostat.lowerTemp();} ).toThrow(new Error("Minimum temperature reached"));
+  });
 });

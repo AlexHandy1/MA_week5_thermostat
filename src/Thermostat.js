@@ -7,6 +7,7 @@ Thermostat.prototype.raiseTemp = function() {
 };
 
 Thermostat.prototype.lowerTemp = function() {
+  if (this.degree <= 10) throw "Minimum temperature reached";
   this.degrees -= 1;
 };
 
