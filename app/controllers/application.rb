@@ -2,7 +2,16 @@ get '/' do
   erb :index
 end
 
-get '/temperature_change' do
+post '/temperature/change' do
   headers 'Access-Control-Allow-Origin' => '*'
-  {temperature: "20"}.to_json
+  session['temperature'] = params['temperature']
+  @temperatures = []
+  @temperatures << session['temperature']
+  session['json'] = @temperatures
+  {temperatures: @temperatures}.to_json
+end
+
+get '/temperature/change' do
+  p session['json']
+  {temperatures: session['json']}.to_json
 end

@@ -3,8 +3,8 @@ var thermostat = new Thermostat();
 $(document).ready( function() {
   $('#down').on('click', function(){
     thermostat.lowerTemp();
+    $.post('/temperature/change', { temperature: thermostat.degrees});
     $('#temperature').html(thermostat.degrees);
-        // store thermostat.degrees in a session that can access in controller
     if (thermostat.degrees < 18) {
         $('html').removeClass("yellow");
         $('html').addClass("green");
@@ -19,6 +19,7 @@ $(document).ready( function() {
 
   $('#up').on('click', function(){
     thermostat.raiseTemp();
+    $.post('/temperature/change', { temperature: thermostat.degrees});
     $('#temperature').html(thermostat.degrees);
     if (thermostat.degrees < 18) {
         $('html').removeClass("yellow");
@@ -32,11 +33,21 @@ $(document).ready( function() {
         $('html').addClass("red");    }
   });
 
+// not working
+  $('#show').on('click'), function(event){
+    event.preventDefault();
+    $.get('/temperature/change', function(data) {
+      $('#showPrevious').text(data.temperatures[0]);
+      console.log(data.temperatures[0])
+    });
+  }
+
   $('#reset').on('click', function(){
     thermostat.defaultTemp();
     $('#temperature').html(thermostat.degrees);
   });
 
+  // ordering issue?
  $('#powerOn').on('click', function(){
     thermostat.turnPowerOn();
   });
