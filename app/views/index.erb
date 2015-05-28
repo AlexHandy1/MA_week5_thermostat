@@ -5,29 +5,34 @@
 </head>
 <body>
   <div id='degrees'><span id='temperature'>20</span> ℃</div>
-  <input id='up' type='submit' value='&#8593;'>
-  <input id='down' type='button' value='&#8595;'>
+  <br>
+  <div id='thermostat'> </div>
+  <div id='graph'>
+    <ul>
+      <li>35</li>
+      <br>
+      <br>
+      <li>30</li>
+      <br>
+      <br>
+      <li>25</li>
+      <br>
+      <br>
+      <li>20</li>
+      <br>
+      <br>
+      <li>15</li>
+      <br>
+      <br>
+      <li>10</li>
+    </ul>
+  <div>
 
-  <input id='reset' type='button' value='reset'>
+  <div id='thermo-buttons'>
+    <input id='up' type='submit' value='&#8593;'>
+    <input id='down' type='button' value='&#8595;'>
+  </div>
 
-  <input id='powerOff' type='button' value='powerOff'>
-  <input id='powerOn' type='button' value='powerOn'>
-
-  <input id='show' type='button' value='ShowPrevious'>
-  <div id='showPrevious'> </div>
-
-  <br>
-  <br>
-  What is the weather in another City?
-  <form id='city-search' name="City search">
-    <input type='text' name='city'/>
-    <input type='submit' value='search'>
-  </form>
-  <br>
-  <br>
-  Your searched city has: <div id='city-weather'> </div>
-  <br>
-  And the temperature is: <div id='city-temp'> </div>
 
   <script src='js/src/weather.js'></script>
   <script src='js/src/Thermostat.js'></script>

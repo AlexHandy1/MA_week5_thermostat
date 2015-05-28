@@ -3,6 +3,7 @@ var thermostat = new Thermostat();
 $(document).ready( function() {
   $('#down').on('click', function(){
     thermostat.lowerTemp();
+    $('#thermostat').animate({top: '+=20'});
     $.post('/temperature/change', { temperature: thermostat.degrees});
     $('#temperature').html(thermostat.degrees);
     if (thermostat.degrees < 18) {
@@ -19,6 +20,7 @@ $(document).ready( function() {
 
   $('#up').on('click', function(){
     thermostat.raiseTemp();
+    $('#thermostat').animate({top: '-=20'});
     $.post('/temperature/change', { temperature: thermostat.degrees});
     $('#temperature').html(thermostat.degrees);
     if (thermostat.degrees < 18) {
