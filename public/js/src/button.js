@@ -4,7 +4,7 @@ $(document).ready( function() {
   $('#down').on('click', function(){
     thermostat.lowerTemp();
     $('#temperature').html(thermostat.degrees);
-
+        // store thermostat.degrees in a session that can access in controller
     if (thermostat.degrees < 18) {
         $('html').removeClass("yellow");
         $('html').addClass("green");
